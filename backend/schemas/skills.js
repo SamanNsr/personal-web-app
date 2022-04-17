@@ -1,6 +1,6 @@
 export default {
-  name: 'testimonials',
-  title: 'Testimonials',
+  name: 'skills',
+  title: 'Skills',
   type: 'document',
   fields: [
     {
@@ -9,22 +9,17 @@ export default {
       type: 'string',
     },
     {
-      name: 'company',
-      title: 'Company',
+      name: 'bgColor',
+      title: 'BgColor',
       type: 'string',
     },
     {
-      name: 'imgurl',
-      title: 'ImgUrl',
+      name: 'icon',
+      title: 'Icon',
       type: 'image',
       options: {
         hotspot: true,
       },
-    },
-    {
-      name: 'feedback',
-      title: 'Feedback',
-      type: 'string',
     },
   ],
 };
