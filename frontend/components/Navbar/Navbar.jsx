@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import cn from 'classnames';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
@@ -7,15 +6,18 @@ import { motion } from 'framer-motion';
 import { images } from '../../constants';
 import styles from './Navbar.module.scss';
 import { useToggleState } from '../../hooks';
+import StyledImage from '../StyledImage/StyledImage';
 
 const Navbar = () => {
   const [toggle, setToggle] = useToggleState();
   return (
     <nav className={cn(styles['app__navbar'])}>
       <div className={cn(styles['app__navbar-logo'])}>
-        <div className={cn(styles['app__navbar-logo-img'])}>
-          <Image src={images.logo} alt="logo" />
-        </div>
+        <StyledImage
+          className={cn(styles['app__navbar-logo-img'])}
+          src={images.logo}
+          alt="logo"
+        />
       </div>
 
       <ul className={cn(styles['app__navbar-links'])}>
@@ -29,6 +31,7 @@ const Navbar = () => {
         })}
       </ul>
 
+      {/* Small screen burger menu */}
       <div className={cn(styles['app__navbar-menu'])}>
         <HiMenuAlt4 onClick={() => setToggle(true)} />
         {toggle && (
