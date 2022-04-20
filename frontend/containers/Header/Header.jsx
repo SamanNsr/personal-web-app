@@ -2,6 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 
+import { AppWrap } from '../../wrapper';
 import styles from './Header.module.scss';
 import { images } from '../../constants';
 import { StyledImage } from '../../components';
@@ -75,4 +76,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default AppWrap(Header, 'home');

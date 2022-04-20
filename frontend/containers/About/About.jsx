@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 
 import styles from './About.module.scss';
 import { client } from '../../client';
-import SanityImage from '../../components/SanityImage/SanityImage';
+import { SanityImage } from '../../components';
+import { AppWrap } from '../../wrapper';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -51,4 +52,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AppWrap(About, 'about');
