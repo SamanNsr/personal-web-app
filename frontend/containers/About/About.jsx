@@ -3,24 +3,19 @@ import cn from 'classnames';
 import { motion } from 'framer-motion';
 
 import styles from './About.module.scss';
-import { StyledImage } from '../../components';
-import { images } from '../../constants';
+import { client } from '../../client';
+import SanityImage from '../../components/SanityImage/SanityImage';
 
-const abouts = [
-  {
-    title: 'Backend',
-    description:
-      "I'm a backend developer with a passion for building scalable and maintainable applications.",
-    imageUrl: images.nodejs,
-  },
-  {
-    title: 'Frontend',
-    description:
-      "I'm a frontend developer with a passion for building beautiful and functional user interfaces.",
-    imageUrl: images.react,
-  },
-];
 const About = () => {
+  const [abouts, setAbouts] = useState([]);
+
+  useEffect(() => {
+    const query = '*[_type == "abouts"]';
+    client.fetch(query).then((data) => {
+      setAbouts(data);
+    });
+  }, []);
+
   return (
     <div className={cn(styles['app__about'])}>
       <h2 className={cn('head-text')}>
@@ -37,10 +32,11 @@ const About = () => {
             className={cn(styles['app__profile-item'])}
             key={about.title + index}
           >
-            <StyledImage
+            <SanityImage
               className={cn(styles['app__profile-item-img'])}
-              src={about.imageUrl}
+              sanityImage={about.imgUrl}
               alt={about.title}
+              style={{ borderRadius: '15px' }}
             />
             <h2 className={cn('bold-text')} style={{ marginTop: 20 }}>
               {about.title}
