@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import styles from './About.module.scss';
 import { client } from '../../client';
 import { SanityImage } from '../../components';
-import { AppWrap } from '../../wrapper';
+import { AppWrap, MotionWrap } from '../../wrapper';
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -18,7 +18,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className={cn(styles['app__about'])}>
+    <>
       <h2 className={cn('head-text')}>
         I now that<span> Good Devs</span>
         <br /> means<span> Good Business</span>
@@ -48,8 +48,12 @@ const About = () => {
           </motion.div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
-export default AppWrap(About, 'about');
+export default AppWrap(
+  MotionWrap(About, cn(styles['app__about'])),
+  'about',
+  cn('app__whitebg'),
+);
