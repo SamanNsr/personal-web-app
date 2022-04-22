@@ -39,7 +39,7 @@ const Skills = () => {
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 1 }}
               className={cn(styles['app__skills-item'], 'app__flex')}
-              key={index}
+              key={skill.name + index}
             >
               <div className={cn('app__flex')} style={{ backgroundColor: skill.bgColor }}>
                 <SanityImage
@@ -80,6 +80,7 @@ const Skills = () => {
                       effect="solid"
                       arrowColor="#fff"
                       className={cn(styles['skills-tooltip'])}
+                      key={work.name + index}
                     >
                       {work.desc}
                     </ReactTooltip>
