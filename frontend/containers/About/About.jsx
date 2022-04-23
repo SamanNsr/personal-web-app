@@ -20,7 +20,7 @@ const About = () => {
   return (
     <>
       <h2 className={cn('head-text')}>
-        I now that<span> Good Devs</span>
+        I know that<span> Good Devs</span>
         <br /> means<span> Good Business</span>
       </h2>
 
