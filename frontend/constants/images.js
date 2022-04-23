@@ -5,6 +5,8 @@ import react from '../assets/react.png';
 import nodejs from '../assets/nodejs.png';
 import golang from '../assets/golang.png';
 import noImage from '../assets/no-image.jpg';
+import email from '../assets/email.png';
+import mobile from '../assets/mobile.png';
 
 export default {
   logo,
@@ -14,4 +16,6 @@ export default {
   nodejs,
   golang,
   noImage,
+  email,
+  mobile,
 };

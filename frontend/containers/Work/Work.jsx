@@ -14,13 +14,22 @@ const Work = () => {
   const [animateCard, setAnimateCard] = useState({ y: 0, opacity: 1 });
   const [works, setWorks] = useState([]);
   const [filteredWork, setFilteredWork] = useState([]);
+  const [tags, setTags] = useState([]);
 
   useEffect(() => {
     //  const query = `*[_type == "work" && category == "${activeFilter}"]`;
     const query = `*[_type == "works"]`;
+    const tagsQuery = `*[_type == "workTags"]`;
     client.fetch(query).then((data) => {
       setWorks(data);
       setFilteredWork(data);
+    });
+    client.fetch(tagsQuery).then((data) => {
+      const allTags = data.map((tag) => tag.name);
+      if (allTags.length === 0) {
+        allTags.push('All');
+      }
+      setTags(allTags);
     });
   }, []);
 
@@ -45,7 +54,7 @@ const Work = () => {
       </h2>
 
       <div className={cn(styles['app__work-filter'])}>
-        {['UI/UX', 'Frontend', 'Backend', 'Mobile', 'All'].map((item, index) => (
+        {tags.map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
